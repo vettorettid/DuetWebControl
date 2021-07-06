@@ -845,6 +845,7 @@ export default {
 			orientationZ: 'Orientation Z',
 			tool: 'Tool',
 			axis: 'Axis',
+			filename: 'Filename (auto-generated)',
 			minAcceleration: 'Min Acceleration',
 			maxAcceleration: 'Max Acceleration',
 			maxSpeed: 'Max Speed',

@@ -106,6 +106,16 @@ export default [
 		)
 	}),
 	new DwcPlugin({
+		id: 'RPiStatistics',
+		name: 'RPi statistics',
+		author: 'Denis Vettoretti',
+		version,
+		loadDwcResources: () => import(
+			/* webpackChunkName: "RPiStatistics" */
+			'./RPiStatistics/index.js'
+		)
+	}),
+	new DwcPlugin({
 		id: 'OnScreenKeyboard',
 		name: 'On-Screen Keyboard',
 		author: 'Duet3D Ltd',

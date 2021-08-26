@@ -9,13 +9,24 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/temperature")
-def temperature():
-    return str(random.randint(1, 100))
+@app.route("/rpi_storage")
+def get_rpi_storage():
+    disk = psutil.disk_usage('/')
+    disk_total = disk.total / 2**30     # GiB.
+    disk_used = disk.used / 2**30
+    disk_free = disk.free / 2**30
+    disk_percent_used = disk.percent
 
-@app.route("/storage")
-def storage():
-    return str(random.randint(1, 100))
+    rpi_disk = {
+        "disk": {
+            "disk_total": disk_total,
+            "disk_used": disk_used,
+            "disk_free": disk_free,
+            "disk_percent_used": disk_percent_used
+        }
+    }
+
+    return rpi_disk
 
 @app.route("/rpi_status")
 def get_rpi_status():
@@ -44,6 +55,17 @@ def get_rpi_status():
     swap_ram_used = swap_ram.used / 2**20
     swap_ram_free = swap_ram.free / 2**20
     swap_ram_percent_used = swap_ram.percent
+
+    cpufreq = psutil.cpu_freq()
+    max_cpufreq=cpufreq.max
+    min_cpufreq=cpufreq.min
+    current_cpufreq = cpufreq.current
+
+    # uname = platform.uname()
+    # sys_name = uname.system
+    # sys_release = uname.release
+    # sys_version = uname.version
+    # sys_processor = uname.processor
 
     rpi_obj = {
         "temperatures": {

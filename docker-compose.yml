@@ -1,0 +1,16 @@
+version: "3.6"
+
+services:
+  duet_web_control:
+    build:
+      context: ../DuetWebControl
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8080"
+
+
+# services:
+#   grafana:
+#     image: grafana/grafana
+#     ports:
+#       - 3000:3000

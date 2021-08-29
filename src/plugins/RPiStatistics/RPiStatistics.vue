@@ -21,7 +21,7 @@
       <v-row  class="justify-start" no-gutters>
         <v-col cols="3" sm="6" md="3" class="d-flex">
         <!-- <v-col cols="md-lg-4" class="d-flex"> -->
-          <v-card class="mt-1 flex-grow-1">
+          <v-card class="mt-1 mr-2 flex-grow-1">
               <v-card-title class="justify-center"><b>SBC Info</b></v-card-title>
               <v-img
                 width="255"
@@ -41,12 +41,12 @@
         </v-col>
         <v-col cols="3" sm="6" md="3" class="d-flex">
         <!-- <v-col cols="md-lg-4" class="d-flex"> -->
-          <v-card class="mt-1 flex-grow-1">
+          <v-card class="mt-1 ml-2 mr-2 flex-grow-1">
               <v-card-title class="justify-center"><b>CPU Temperature</b></v-card-title>
               <v-progress-circular
                 :rotate="90"
                 :size="230"
-                :width="30"
+                :width="35"
                 :value="rpi_status.temperatures.cpu"
                 color="primary"
               >
@@ -56,12 +56,12 @@
         </v-col>
         <!-- <v-col cols="md-lg-4" class="d-flex"> -->
           <v-col cols="3" sm="6" md="3" class="d-flex">
-          <v-card class="mt-1 flex-grow-1">
+          <v-card class="mt-1 ml-2 mr-2  flex-grow-1">
               <v-card-title class="justify-center"><b>CPU Load</b></v-card-title>
               <v-progress-circular
                 :rotate="90"
                 :size="230"
-                :width="30"
+                :width="35"
                 :value="rpi_status.cpu_usage.total_cpu_usage"
                 color="primary"
               >
@@ -70,11 +70,11 @@
           </v-card>
         </v-col>
         <v-col cols="3" sm="6" md="3" class="d-flex">
-          <v-card class="mt-1 flex-grow-1">
+          <v-card class="mt-1 ml-2 mr-2 flex-grow-1" max-width= "290px">
               <v-card-title class="justify-center"><b>CPU cores load</b></v-card-title>
               <apexchart 
               type="radialBar" 
-              height="330"
+              height="320"
               :options="optionsRadialBars" :series="rpi_status.cpu_usage.cpu_usage_per_core.slice(0, 4)"
               :labels="labels">
             </apexchart>  
@@ -238,7 +238,7 @@ export default {
                 show: false,
               },
               value: {
-                show: true,
+                show: false,
               }
             }
           }
@@ -248,7 +248,7 @@ export default {
         legend: {
           show: true,
           floating: true,
-          fontSize: '18px',
+          fontSize: '14px',
           position: 'left',
           offsetX: -15,
           offsetY: 15,
@@ -259,7 +259,7 @@ export default {
             size: 0
           },
           formatter: function(seriesName, opts) {
-            return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
+            return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex] + '%'
           },
           itemMargin: {
             vertical: 3

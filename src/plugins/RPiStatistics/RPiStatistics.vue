@@ -290,7 +290,7 @@ export default {
 
         getRPiStatus: function() {
           axios
-                .get("http://localhost:5000/rpi_status")    
+                .get("http://192.168.0.100:5000/rpi_status")    
                 .then(response => (
                   this.rpi_status = response.data)) 
                 .catch(error => console.log(error))  

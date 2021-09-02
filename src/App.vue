@@ -58,7 +58,8 @@ textarea {
 	<v-app>
 		<v-navigation-drawer v-model="drawer" clipped fixed app width="300">
 			<div class="pa-2 hidden-sm-and-up">
-				<connect-btn v-if="isLocal" class="mb-3" block></connect-btn>
+				<!-- <connect-btn v-if="isLocal" class="mb-3" block></connect-btn> -->
+				<connect-btn class="mb-3" block></connect-btn>
 				<emergency-btn block></emergency-btn>
 			</div>
 
@@ -85,7 +86,8 @@ textarea {
 			<v-toolbar-title>
 				<a href="javascript:void(0)" id="title">{{ name }}</a>
 			</v-toolbar-title>
-			<connect-btn v-if="isLocal" class="hidden-xs-only"></connect-btn>
+			<!-- <connect-btn v-if="isLocal" class="hidden-xs-only"></connect-btn> -->
+			<connect-btn class="hidden-xs-only"></connect-btn>
 
 			<v-spacer></v-spacer>
 
@@ -225,9 +227,9 @@ export default {
 		window.addEventListener('unload', this.disconnectAll);
 
 		// Connect if running on a board
-		if (!this.isLocal) {
-			this.connect();
-		}
+		// if (!this.isLocal) {
+		// 	this.connect();
+		// }
 
 		// Attempt to load the settings
 		this.load();

@@ -159,13 +159,13 @@
               <v-card-text>
                 <div class="text--primary">
                   RAM size: {{rpi_status.ram.ram_total.toFixed(2)}} MB<br>
-                  RAM used: {{rpi_status.ram.ram_free.toFixed(2)}} MB<br>
+                  RAM used: {{rpi_status.ram.ram_used.toFixed(2)}} MB<br>
                   RAM available: {{rpi_status.ram.ram_free.toFixed(2)}} MB<br>
                 </div>
               </v-card-text>
             <apexchart 
               type="donut" 
-              :options="options" :series="[rpi_status.ram.ram_total, rpi_status.ram.ram_free]"
+              :options="options" :series="[rpi_status.ram.ram_free, rpi_status.ram.ram_used]"
               :labels="labels">
             </apexchart>  
           </v-card>

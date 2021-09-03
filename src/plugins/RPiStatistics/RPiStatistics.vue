@@ -47,10 +47,10 @@
                 :rotate="90"
                 :size="230"
                 :width="35"
-                :value="rpi_status.temperatures.cpu"
+                :value="rpi_status.temperatures.cpu.toFixed(1)"
                 color="primary"
               >
-                {{ rpi_status.temperatures.cpu }} °C
+                {{ rpi_status.temperatures.cpu.toFixed(1) }} °C
               </v-progress-circular>
           </v-card>
         </v-col>
